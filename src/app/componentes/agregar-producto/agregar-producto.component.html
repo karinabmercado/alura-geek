@@ -1,0 +1,119 @@
+<app-header></app-header>
+
+<section class="agregar-section">
+  <a routerLink="/" class="volver-btn">
+    <i class="fas fa-arrow-left"></i> Volver al inicio
+  </a>
+  <h2 class="agregar-title">Agregar Producto</h2>
+  <flash-messages></flash-messages>
+  <div class="agregar-container">
+    <form #productoForm="ngForm" (ngSubmit)="agregarProducto(productoForm)">
+      <div class="form-group">
+        <input 
+          type="text" 
+          name="nombre" 
+          class="form-input" 
+          placeholder=" " 
+          #nombre="ngModel"
+          [(ngModel)]="producto.nombre"
+          [ngClass]="{'is-invalid': nombre.errors && nombre.touched}"
+          required
+          minlength="2">
+        <label for="nombre" class="form-label">Nombre</label>
+        <div [hidden]="!nombre.errors?.['required']" class="invalid-feedback">
+          Nombre requerido
+        </div>
+        <div [hidden]="!nombre.errors?.['minlength']" class="invalid-feedback">
+          Debe contener al menos 2 caracteres
+        </div>
+      </div>
+
+      <div class="form-group">
+        <input 
+        type="text" 
+        name="categoria" 
+        class="form-input" 
+        placeholder=" "
+        #categoria="ngModel"
+        [(ngModel)]="producto.categoria" 
+        [ngClass]="{'is-invalid': categoria.errors && categoria.touched}"
+        required
+        minlength="2">
+        <label for="categoria" class="form-label">Categoria</label>
+        <div [hidden]="!categoria.errors?.['required']" class="invalid-feedback">
+          Categoria requerida
+        </div>
+        <div [hidden]="!categoria.errors?.['minlength']" class="invalid-feedback">
+          Debe contener al menos 2 caracteres
+        </div>
+      </div>
+
+      <div class="form-group">
+        <input 
+        type="number" 
+        class="form-input" 
+        name="valor" placeholder=" "
+        #valor="ngModel"
+        [(ngModel)]="producto.valor" 
+        [ngClass]="{'is-invalid': valor.errors && valor.touched}"
+        required>
+        <label for="valor" class="form-label">Precio</label>
+        <div [hidden]="!valor.errors?.['required']" class="invalid-feedback">
+          Precio requerido
+        </div>
+      </div>
+
+      <div class="form-group">
+        <input 
+        type="text" 
+        class="form-input" 
+        name="imagen" 
+        placeholder=" "
+        #imagen="ngModel" 
+        [(ngModel)]="producto.imagen"
+        [ngClass]="{'is-invalid': imagen.errors && imagen.touched}"
+        required
+        minlength="2">
+        <label for="imagen" class="form-label">Imagen</label>
+        <div [hidden]="!imagen.errors?.['required']" class="invalid-feedback">
+          Nombre de imagen requerido
+        </div>
+        <div [hidden]="!imagen.errors?.['minlength']" class="invalid-feedback">
+          Debe contener al menos 2 caracteres
+        </div>
+      </div>
+
+      <div class="form-group">
+        <textarea 
+        name="descripcion" 
+        id="descripcion" 
+        cols="30" 
+        rows="6" 
+        class="form-input descripcion" 
+        placeholder=" "
+        #descripcion="ngModel" 
+        [(ngModel)]="producto.descripcion"
+        [ngClass]="{'is-invalid': descripcion.errors && descripcion.touched}"
+        required
+        minlength="10"
+        maxlength="250"></textarea>
+        <label for="descripcion" class="form-label">Descripcion</label>
+        <div [hidden]="!descripcion.errors?.['required']" class="invalid-feedback">
+          Descripcion requerida
+        </div>
+        <div [hidden]="!descripcion.errors?.['minlength']" class="invalid-feedback">
+          Debe contener entre 10 y 250 caracteres
+        </div>
+      </div>
+
+      <div class="agregar-btn-container">
+        <button type="submit" class="agregar-btn">
+          <i class="fas fa-plus"></i> Agregar
+        </button>
+      </div>
+    </form>
+  </div>
+  
+</section>
+
+<app-footer></app-footer>

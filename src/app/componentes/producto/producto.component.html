@@ -1,0 +1,29 @@
+<app-header></app-header>
+
+<section class="producto-section">
+  <div class="btn-volver--container">
+    <a routerLink="/" class="btn-volver">
+      <i class="fas fa-arrow-left"></i> Volver al inicio
+    </a>
+    <button class="btn-eliminar" *ngIf="isLogged">
+      Eliminar <i class="fas fa-trash"></i>
+    </button>
+  </div>
+  <div class="producto-container">
+    <div class="producto-imagen--container">
+      <img [src]="plantillaImagen + producto.imagen" alt="img {{producto.nombre}}" class="imagen-producto">
+    </div>
+    <div class="producto-descripcion--container">
+      <div class="buttons-producto">
+        <a routerLink="/editar/{{producto.id}}" *ngIf="isLogged" class="btn-comprar">Editar <i class="fas fa-pencil"></i></a>
+        <button class="btn-comprar" *ngIf="!isLogged">Comprar <i class="fas fa-basket-shopping"></i></button>
+      </div>
+      <h3 class="producto-title">{{producto.nombre}}</h3>
+      <h3 class="producto-valor">{{producto.valor - 0.01 | currency: 'ARS': '$'}}</h3>
+      <p class="producto-cuotas">o en 6 cuotas sin interés de {{producto.valor / 6 | currency: 'ARS': '$'}} <i class="fas fa-credit-card"></i></p>
+      <p class="producto-descripcion">{{producto.descripcion}}</p>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>

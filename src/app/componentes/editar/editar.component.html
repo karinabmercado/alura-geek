@@ -1,0 +1,81 @@
+<app-header></app-header>
+
+<section class="editar-section">
+  <a routerLink="/producto/{{producto.id}}" class="volver-btn">
+    <i class="fas fa-arrow-left"></i> Volver
+  </a>
+  <h2 class="editar-title">Modificar</h2>
+
+  <flash-messages></flash-messages>
+  <div class="editar-container">
+    <form #productoForm="ngForm" (ngSubmit)="modificarProducto(productoForm)">
+      <div class="form-group">
+        <input 
+          type="text" 
+          name="nombre" 
+          class="form-input" 
+          placeholder=" " 
+          #nombre="ngModel"
+          [(ngModel)]="producto.nombre"
+          [ngClass]="{'is-invalid': nombre.errors && nombre.touched}"
+          required
+          minlength="2">
+        <label for="nombre" class="form-label">Nombre</label>
+        <div [hidden]="!nombre.errors?.['required']" class="invalid-feedback">
+          Nombre requerido
+        </div>
+        <div [hidden]="!nombre.errors?.['minlength']" class="invalid-feedback">
+          Debe contener al menos 2 caracteres
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <input 
+        type="number" 
+        class="form-input" 
+        name="valor" placeholder=" "
+        #valor="ngModel"
+        [(ngModel)]="producto.valor" 
+        [ngClass]="{'is-invalid': valor.errors && valor.touched}"
+        required>
+        <label for="valor" class="form-label">Precio</label>
+        <div [hidden]="!valor.errors?.['required']" class="invalid-feedback">
+          Precio requerido
+        </div>
+      </div>
+
+      <div class="form-group">
+        <textarea 
+        name="descripcion" 
+        id="descripcion" 
+        cols="30" 
+        rows="6" 
+        class="form-input descripcion" 
+        placeholder=" "
+        #descripcion="ngModel" 
+        [(ngModel)]="producto.descripcion"
+        [ngClass]="{'is-invalid': descripcion.errors && descripcion.touched}"
+        required
+        minlength="10"
+        maxlength="250"></textarea>
+        <label for="descripcion" class="form-label">Descripcion</label>
+        <div [hidden]="!descripcion.errors?.['required']" class="invalid-feedback">
+          Descripcion requerida
+        </div>
+        <div [hidden]="!descripcion.errors?.['minlength']" class="invalid-feedback">
+          Debe contener entre 10 y 250 caracteres
+        </div>
+      </div>
+
+      <div class="editar-btn-container">
+        <button type="submit" class="editar-btn">
+          Modificar
+        </button>
+      </div>
+    </form>
+  </div>
+
+</section>
+
+<app-footer></app-footer>

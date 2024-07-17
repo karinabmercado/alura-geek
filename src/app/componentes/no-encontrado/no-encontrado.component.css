@@ -1,0 +1,30 @@
+.error-404{
+  padding: 5.2rem 0;
+}
+
+.volver-container{
+  padding: 1.5rem 1rem;
+}
+
+.volver-container a{
+  font-size: 1rem;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  color: #33B0D6;
+  border: 2px solid #33B0D6;
+  border-radius: 5px;
+  background-color: #fdfdfd;
+  cursor: pointer;
+  transition: all 300ms ease-in-out;
+}
+
+.volver-container a:hover{
+  color: #154857;
+  border: 2px solid #154857;
+}
+
+.error-404 h1{
+  font-size: 4rem;
+  font-weight: bold;
+  text-align: center;
+}

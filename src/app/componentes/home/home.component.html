@@ -1,0 +1,117 @@
+<app-header></app-header>
+
+
+<button class="slider--arrow before" id="before" (click)="AchangePosition(-1)">
+  <i class="fas fa-arrow-left"></i>
+</button>
+
+<button class="slider--arrow after" id="next" (click)="AchangePosition(1)">
+    <i class="fas fa-arrow-right"></i>
+</button>
+
+<div class="banner-promos">
+
+  <div class="slide xbox show" data-id="1">
+    <h2>Descuentos exclusivos en juegos</h2>
+    <p>Promocion exclusiva para juegos de Xbox Series X</p>
+  </div>
+  <div class="slide marvel" data-id="2">
+    <h2>3x2 en Funko Pop Marvel</h2>
+    <p>las mejores colecciones de Marvel en Alura Geek</p>
+  </div>
+  <div class="slide dualsense" data-id="3">
+    <h2>Promo {{mes}} DualSense PS5</h2>
+    <p>10% off en el nuevo joystick DualSense para tu PS5</p>
+  </div>
+  <div class="slide macbook" data-id="4">
+    <h2>Semana Apple</h2>
+    <p>15% de descuento en toda la linea de MacBooks</p>
+  </div>
+
+</div>
+
+<section class="home">
+  <div class="btn-ver--container">
+    <a routerLink="all-products" class="btn-ver">
+      Ver todo <i class="fas fa-arrow-right"></i>
+    </a>
+  </div>
+
+  <h3 class="zona-title">Consolas y accesorios</h3>
+  <div class="zona consolas">
+    <div class="card" (click)="irAProducto(consola.id)" *ngFor="let consola of productosConsolas">
+      <div class="img-card--container">
+        <img [src]="plantillaImagen + consola.imagen" [alt]="consola.nombre">
+      </div>
+      <hr>
+      <h4 class="card-title">{{consola.nombre}}</h4>
+      <p class="card-price">{{consola.valor - 0.01 | currency: 'ARS': '$'}}</p>
+      <a routerLink="/producto/{{consola.id}}" class="card-link">
+        Ver <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+  </div>
+
+  <h3 class="zona-title">Videojuegos</h3>
+  <div class="zona juegos">
+    <div class="card" (click)="irAProducto(juego.id)" *ngFor="let juego of productosJuegos">
+      <div class="img-card--container">
+        <img [src]="plantillaImagen + juego.imagen" [alt]="juego.nombre">
+      </div>
+      <hr>
+      <h4 class="card-title">{{juego.nombre}}</h4>
+      <p class="card-price">{{juego.valor - 0.01 | currency: 'ARS': '$'}}</p>
+      <a routerLink="/producto/{{juego.id}}" class="card-link">
+        Ver <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+  </div>
+
+  <h3 class="zona-title">Marvel</h3>
+  <div class="zona marvel">
+    <div class="card" (click)="irAProducto(marvel.id)" *ngFor="let marvel of productosMarvel">
+      <div class="img-card--container">
+        <img [src]="plantillaImagen + marvel.imagen" [alt]="marvel.nombre">
+      </div>
+      <hr>
+      <h4 class="card-title">{{marvel.nombre}}</h4>
+      <p class="card-price">{{marvel.valor - 0.01 | currency: 'ARS': '$'}}</p>
+      <a routerLink="/producto/{{marvel.id}}" class="card-link">
+        Ver <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+  </div>
+
+  <h3 class="zona-title">Star-Wars</h3>
+  <div class="zona star-wars">
+    <div class="card" (click)="irAProducto(star.id)" *ngFor="let star of productosStarWars">
+      <div class="img-card--container">
+        <img [src]="plantillaImagen + star.imagen" [alt]="star.nombre">
+      </div>
+      <hr>
+      <h4 class="card-title">{{star.nombre}}</h4>
+      <p class="card-price">{{star.valor - 0.01 | currency: 'ARS': '$'}}</p>
+      <a routerLink="/producto/{{star.id}}" class="card-link">
+        Ver <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+  </div>
+
+  <h3 class="zona-title">Harry Potter</h3>
+  <div class="zona harry-potter">
+    <div class="card" (click)="irAProducto(harry.id)" *ngFor="let harry of productosHarryPotter">
+      <div class="img-card--container">
+        <img [src]="plantillaImagen + harry.imagen" [alt]="harry.nombre">
+      </div>
+      <hr>
+      <h4 class="card-title">{{harry.nombre}}</h4>
+      <p class="card-price">{{harry.valor - 0.01 | currency: 'ARS': '$'}}</p>
+      <a routerLink="/producto/{{harry.id}}" class="card-link">
+        Ver <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<app-footer></app-footer>

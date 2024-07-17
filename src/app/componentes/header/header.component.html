@@ -1,0 +1,103 @@
+<section class="header">
+  <nav class="header-nav">
+    <div class="nav-logo--container">
+      <a routerLink="/">
+        <img class="img-logo" src="../../../assets/logo.svg" alt="logo alura geek">
+      </a>
+    </div>
+    <div class="nav-search--container">
+      <input type="search" class="search-input" placeholder="¿Qué desea buscar?" [(ngModel)]="inputSearch" (input)="buscador()">
+      <button type="submit" class="search-btn">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
+    </div>
+
+    <div class="search-mini-container">
+      <div class="nav-search-mini--container">
+        <button type="submit" class="search-btn" (click)="searchInput(inputMini)">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </div>
+      <div class="search-mini--container" #inputMini>
+        <input type="search" class="search-input-mini" placeholder="¿Qué desea buscar?" [(ngModel)]="inputSearch" (input)="buscador()">
+      </div>
+    </div>
+    <div class="search-block" *ngIf="inputSearch.length > 0">
+      <li class="search-item" *ngFor="let producto of resultadoSearch" (click)="navegar(producto.id)">
+        <img [src]="plantillaImagen + producto.imagen" alt="img" class="img-search">
+        <p class="nombre-search">{{producto.nombre}}</p>
+        <p class="valor-search">{{producto.valor - 0.01 | currency: 'ARS': '$'}}</p>
+      </li>
+    </div>
+
+    <div class="nav-login--container" >
+      <a routerLink="/login" class="login-btn" *ngIf="!isLogged">
+        <i class="fas fa-user"></i> Ingresar
+      </a>
+      <li class="menu-admin" *ngIf="isLogged">
+        <button class="login-btn" (click)="adminBtn(list, arrow)">
+          <i class="fas fa-user"></i> Administrador <i class="fas fa-angle-down" #arrow></i>
+        </button>
+        <ul class="admin-list" #list>
+          <li class="admin-item">
+            <a routerLink="/agregar" class="login-btn">
+              <i class="fas fa-plus"></i> Agregar Producto
+            </a>
+          </li>
+          <li class="admin-item">
+            <button (click)="cerrarSesion()" class="login-btn">
+              <i class="fas fa-arrow-right-from-bracket"></i> Salir
+            </button>
+          </li>
+        </ul>
+      </li>   
+      
+    </div>
+
+    <div class="burger" #burger (click)="menuBurger(burger, adminMenu)">
+      <div class="barra superior"></div>
+      <div class="barra media"></div>
+      <div class="barra inferior"></div>
+    </div>  
+
+  </nav>
+
+  <div class="admin-menu" #adminMenu>
+    <div class="admin-button">
+      <button routerLink="/login" class="burger-admin ingresar" *ngIf="!isLogged">
+        <i class="fas fa-user"></i> Ingresar
+      </button>
+      <button class="burger-admin" *ngIf="isLogged">
+          <i class="fas fa-user"></i> Administrador
+      </button>
+    </div>
+    <hr>
+    <ul class="admin-list-burger" *ngIf="isLogged">
+      <li class="admin-item">
+        <button routerLink="/agregar" class="burger-item">
+          <i class="fas fa-plus"></i> Agregar Producto
+        </button>
+      </li>
+      <li class="admin-item">
+        <button (click)="cerrarSesion()" class="burger-item">
+          <i class="fas fa-arrow-right-from-bracket"></i> Salir
+        </button>
+      </li>
+    </ul>
+    <div class="redes">
+      <img src="../../../assets/logo-celeste.svg" alt="Logo" class="logo">
+
+      <div class="header-redes">
+        <a href="https://www.github.com/karinabmercado/" target="_blank" class="redes-link">
+          <img src="../../../assets/github.svg" alt="github" title="GitHub" class="img-redes">
+        </a>
+        <a href="https://www.linkedin.com/in/karinabmercado/" target="_blank" class="redes-link">
+          <img src="../../../assets/linkedin.svg" alt="linkedin" title="LinkedIn" class="img-redes">
+        </a>
+      </div>
+
+      <p class="copy-redes">Desarrollado por Karina Mercado</p>
+    </div>
+  </div>
+
+</section>

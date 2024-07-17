@@ -1,0 +1,39 @@
+.quienes-somos{
+  padding: 3rem 2rem;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+.volver-container{
+  padding: 2rem 0;
+  padding-bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-volver{
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  color: #154857;
+  border: 2px solid #154857;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  transition: all 300ms ease-in;
+}
+
+.btn-volver:hover{
+  color: #fdfdfd;
+  background-color: #154857;
+}
+
+.title{
+  text-align: center;
+  font-weight: 700;
+  font-size: 2rem;
+  padding-bottom: 1.2rem;
+}

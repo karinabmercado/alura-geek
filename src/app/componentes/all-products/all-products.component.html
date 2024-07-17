@@ -1,0 +1,27 @@
+<app-header></app-header>
+
+<section class="all-products--section">
+  <div class="btn-volver--container">
+    <a routerLink="/" class="btn-volver">
+      <i class="fas fa-arrow-left"></i> Volver al inicio
+    </a>
+  </div>
+
+
+  <h3 class="zona-title">Todos los productos</h3>
+  <div class="zona">
+    <div class="card" (click)="irAProducto(producto.id)" *ngFor="let producto of productos">
+      <div class="img-card--container">
+        <img [src]="plantillaImagen + producto.imagen" [alt]="producto.nombre">
+      </div>
+      <hr>
+      <h4 class="card-title">{{producto.nombre}}</h4>
+      <p class="card-price">{{producto.valor - 0.01 | currency: 'ARS': '$'}}</p>
+      <a routerLink="/producto/{{producto.id}}" class="card-link">
+        Ver <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>

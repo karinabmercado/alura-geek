@@ -1,0 +1,106 @@
+.login-section{
+  margin-top: 5.2rem;
+  padding: 2rem 1rem;
+}
+
+.volver-btn{
+  margin-top: 1rem;
+  margin-left: 1rem;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  color: #154857;
+  border: 2px solid #154857;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  transition: all 400ms ease-in;
+}
+
+.volver-btn:hover{
+  color: #33B0D6;
+  border-color: #33B0D6;
+}
+
+.login-title{
+  font-size: 2rem;
+  text-align: center;
+  padding: 1rem 0;
+  color: #154857;
+}
+
+.login-container{
+  padding: 1rem;
+  width: 400px;
+  max-width: 100%;
+  margin: 1rem auto;
+  border-radius: 10px;
+  box-shadow: -4px 4px 8px rgba(0, 0, 0, 0.3), 4px -4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.form-group{
+  position: relative;
+  padding: .5rem;  
+  margin-bottom: 1.3rem;
+  --color: #fdfdfd;
+}
+
+.form-input{
+  width: 100%;
+  font-size: 1rem;
+  font-family: 'Lato', sans-serif;
+  color: #464646;
+  padding: 1rem;
+  border: 2px solid #33B0D6;
+  border-radius: 10px;
+  outline: none;
+  background-color: transparent;
+}
+
+.form-label{
+  color: #33B0D6;
+  background-color: #fdfdfd;
+  cursor: pointer;
+  position: absolute;
+  top: 5px;
+  left: 16px;
+  transform: translateY(15px);
+  transition: transform .5s, color .3s;
+}
+
+.form-input:focus +.form-label,
+.form-input:not(:placeholder-shown) + .form-label{
+  transform: translateY(-12px) scale(.99);
+  transform-origin: top left;
+  --color: #33B0D6;
+  padding: .3rem .5rem;
+}
+
+.form-input.descripcion:focus +.form-label,
+.form-input.descripcion:not(:placeholder-shown) + .form-label{
+  transform: translateY(-13px) scale(.99);
+  transform-origin: top left;
+}
+
+.btn-ingresar-container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-ingresar{
+  width: 100%;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  color: #33B0D6;
+  border: 2px solid #33B0D6;
+  border-radius: 5px;
+  background-color: #fdfdfd;
+  cursor: pointer;
+  transition: all 300ms ease-in-out;
+}
+
+.btn-ingresar:hover{
+  background-color: #154857;
+  border-color: #154857;
+  color: #fdfdfd
+}
